@@ -1,7 +1,13 @@
 {
   "_comment": "数値はここで調整できます。単位はゲーム内ピクセル（画面960x540基準）",
-  "screen": { "width": 960, "height": 540 },
-  "ground": { "top": 380, "bottom": 525 },
+  "screen": {
+    "width": 960,
+    "height": 540
+  },
+  "ground": {
+    "top": 380,
+    "bottom": 525
+  },
   "hero": {
     "speed": 4.2,
     "depthSpeed": 2.6,
@@ -11,27 +17,133 @@
     "depthTolerance": 26,
     "comboWindowMs": 520,
     "punch": [
-      { "damage": 8,  "activeMs": 90,  "recoverMs": 160, "knockback": 6,  "voice": "tissue" },
-      { "damage": 10, "activeMs": 100, "recoverMs": 190, "knockback": 8,  "voice": "tissue" },
-      { "damage": 34, "activeMs": 140, "recoverMs": 420, "knockback": 26, "voice": "yamamori", "finisher": true }
+      {
+        "damage": 8,
+        "activeMs": 90,
+        "recoverMs": 160,
+        "knockback": 6,
+        "voice": "tissue"
+      },
+      {
+        "damage": 10,
+        "activeMs": 100,
+        "recoverMs": 190,
+        "knockback": 8,
+        "voice": "tissue"
+      },
+      {
+        "damage": 34,
+        "activeMs": 140,
+        "recoverMs": 420,
+        "knockback": 26,
+        "voice": "yamamori",
+        "finisher": true
+      }
     ],
-    "jumpKick": { "damage": 16, "knockback": 18 },
+    "jumpKick": {
+      "damage": 16,
+      "knockback": 18
+    },
     "jumpPower": 13,
     "gravity": 0.7,
     "invincibleMs": 700
   },
   "enemies": {
-    "punk": { "hp": 40, "speed": 1.9, "height": 205, "reach": 80, "damage": 10, "windupMs": 420, "recoverMs": 700, "score": 300 },
-    "boss": { "hp": 420, "speed": 1.5, "height": 300, "reach": 120, "damage": 22, "windupMs": 520, "recoverMs": 900, "score": 5000 }
+    "punk": {
+      "hp": 40,
+      "speed": 1.9,
+      "height": 205,
+      "reach": 80,
+      "damage": 8,
+      "windupMs": 420,
+      "recoverMs": 700,
+      "score": 300
+    },
+    "boss": {
+      "hp": 320,
+      "speed": 1.5,
+      "height": 300,
+      "reach": 120,
+      "damage": 16,
+      "windupMs": 520,
+      "recoverMs": 900,
+      "score": 5000
+    }
   },
-  "ai": { "maxAttackers": 2, "chaseGap": 70 },
+  "ai": {
+    "maxAttackers": 2,
+    "chaseGap": 70
+  },
   "stage": {
     "panelWidth": 810,
     "waves": [
-      { "at": 200,  "enemies": [ ["punk", 1100, 430], ["punk", 1150, 500] ] },
-      { "at": 900,  "enemies": [ ["punk", 1800, 400], ["punk", 1850, 470], ["punk", 1900, 520] ] },
-      { "at": 1650, "enemies": [ ["punk", 2500, 420], ["punk", 2550, 500], ["punk", 2600, 460], ["boss", 2700, 460] ] }
+      {
+        "at": 200,
+        "enemies": [
+          [
+            "punk",
+            1100,
+            430
+          ],
+          [
+            "punk",
+            1150,
+            500
+          ]
+        ]
+      },
+      {
+        "at": 900,
+        "enemies": [
+          [
+            "punk",
+            1800,
+            400
+          ],
+          [
+            "punk",
+            1850,
+            470
+          ],
+          [
+            "punk",
+            1900,
+            520
+          ]
+        ]
+      },
+      {
+        "at": 1650,
+        "enemies": [
+          [
+            "punk",
+            2500,
+            420
+          ],
+          [
+            "punk",
+            2550,
+            500
+          ],
+          [
+            "punk",
+            2600,
+            460
+          ],
+          [
+            "boss",
+            2700,
+            460
+          ]
+        ]
+      }
     ]
   },
-  "fx": { "hitStopMs": 60, "finisherHitStopMs": 220, "shake": 6, "finisherShake": 22, "tissueCount": 90 }
+  "fx": {
+    "hitStopMs": 60,
+    "finisherHitStopMs": 220,
+    "shake": 6,
+    "finisherShake": 22,
+    "tissueCount": 90
+  }
 }
