@@ -194,7 +194,7 @@
 
   // ---------- HUD ----------
   const hudFrame = hasTex('ui_hud') ? new PIXI.Sprite(TEX['ui_hud']) : null;
-  if (hudFrame) { hudFrame.height = 70; hudFrame.scale.x = hudFrame.scale.y; hudFrame.x = 12; hudFrame.y = 10; hud.addChild(hudFrame); }
+  if (hudFrame) { hudFrame.height = 78; hudFrame.scale.x = hudFrame.scale.y; hudFrame.x = 12; hudFrame.y = 10; hud.addChild(hudFrame); }
   const portrait = hasTex('hero_face') ? new PIXI.Sprite(TEX['hero_face']) : new PIXI.Graphics().rect(0, 0, 56, 56).fill(0x66ccff);
   const barBg = new PIXI.Graphics(); const bar = new PIXI.Graphics(); const bossBar = new PIXI.Graphics();
   const scoreT = new PIXI.Text({ text: '1P  0', style: { fontFamily: 'Impact, sans-serif', fontSize: 26, fill: '#ffdd33', stroke: { color: '#000', width: 4 } } });
@@ -204,7 +204,7 @@
   comboT.x = W - 260; comboT.y = 14;
   const msgT = new PIXI.Text({ text: '', style: { fontFamily: 'Impact, sans-serif', fontSize: 64, fill: '#fff', stroke: { color: '#000', width: 8 }, align: 'center' } });
   msgT.anchor.set(0.5); msgT.x = W / 2; msgT.y = H / 2 - 30;
-  hud.addChild(barBg, bar, bossBar, portrait, scoreT, goT, comboT, msgT);
+  hud.addChild(barBg, bar, bossBar, portrait, scoreT, goT, comboT, msgT); if (hudFrame) hud.setChildIndex(hudFrame, 0);
   function layoutHud() {
     let px = 20, py = 16, ps = 56, bx = 88, by = 30, bw = 300, bh = 20;
     if (hudFrame && manifest.images.ui_hud_layout) { const L = manifest.images.ui_hud_layout; const s = hudFrame.scale.x; px = 12 + L.px * s; py = 10 + L.py * s; ps = L.ps * s; bx = 12 + L.bx * s; by = 10 + L.by * s; bw = L.bw * s; bh = L.bh * s; }

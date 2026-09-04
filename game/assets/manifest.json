@@ -136,7 +136,20 @@
   "bg_c": "bg/bg_c.jpg",
   "hero_face": "sprites/hero_face.png",
   "fx_big": "sprites/fx_big.png",
-  "fx_hit": "sprites/fx_hit.png"
+  "fx_hit": "sprites/fx_hit.png",
+  "fx_tissue": "sprites/fx_tissue.png",
+  "fx_tissue_mountain": "sprites/fx_tissue_mountain.png",
+  "fx_tissuebox": "sprites/fx_tissuebox.png",
+  "ui_hud": "sprites/ui_hud.png",
+  "ui_hud_layout": {
+   "px": 30,
+   "py": 30,
+   "ps": 144,
+   "bx": 228,
+   "by": 72,
+   "bw": 772,
+   "bh": 74
+  }
  },
  "voices": {
   "tissue": "voice/tissue.mp3",
