@@ -149,8 +149,8 @@
   function hitSpark(x, y, big) {
     const s = fxSprite(big ? 'fx_big' : 'fx_hit', x, y, big ? 0.15 : 0.08, big ? 0xff8833 : 0xffee66);
     s.rotation = Math.random() * 6.28;
-    fxs.push({ s, life: big ? 22 : 10, max: big ? 22 : 10, grow: big ? 0.06 : 0.025, spin: big ? 0.15 : 0.3, add: true });
-    if (big) { const r = fxSprite('fx_big', x, y, 0.05, 0x8888ff); fxs.push({ s: r, life: 30, max: 30, grow: 0.12, spin: -0.1, add: true }); }
+    fxs.push({ s, life: big ? 22 : 10, max: big ? 22 : 10, grow: big ? 0.03 : 0.02, growCap: big ? 0.75 : 0.32, spin: big ? 0.15 : 0.3, add: true });
+    if (big) { const r = fxSprite('fx_hit', x, y, 0.05, 0x8888ff); fxs.push({ s: r, life: 30, max: 30, grow: 0.09, growCap: 2.2, spin: -0.1, add: true }); }
   }
   function tissueStorm(x, y, n) {
     for (let i = 0; i < n; i++) {

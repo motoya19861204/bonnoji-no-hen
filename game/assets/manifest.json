@@ -113,6 +113,18 @@
    "charHeight": 480,
    "anchorX": 0.5,
    "anchorY": 1.0
+  },
+  "boss_down": {
+   "file": "sprites/boss_down.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "boss_hit": {
+   "file": "sprites/boss_hit.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
   }
  },
  "images": {
@@ -121,7 +133,10 @@
   "ui_logo": "sprites/ui_logo.png",
   "bg_a": "bg/bg_a.jpg",
   "bg_b": "bg/bg_b.jpg",
-  "bg_c": "bg/bg_c.jpg"
+  "bg_c": "bg/bg_c.jpg",
+  "hero_face": "sprites/hero_face.png",
+  "fx_big": "sprites/fx_big.png",
+  "fx_hit": "sprites/fx_hit.png"
  },
  "voices": {
   "tissue": "voice/tissue.mp3",
