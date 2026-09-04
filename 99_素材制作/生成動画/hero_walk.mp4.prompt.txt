@@ -1,0 +1,7 @@
+How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 1) aligns with the 5.00-second mark of the target video.
+
+integrated_multimodal_description: [Shot 1] This is a cel-shaded anime style video with bold outlines and flat coloring. The scene opens with <Picture 1>, featuring a young man (S1) with shaggy black hair, wearing a teal hooded jacket over a white t-shirt with the text "BEN" printed in bold black letters, a dark scarf around his neck, blue trousers, and white sneakers with a blue logo. He is positioned in the center of the frame against a completely uniform, flat solid magenta background with no floor, shadows, or gradients. The camera is a Static Shot, locked perfectly in place. S1 begins a natural walking cycle, moving his legs and swinging his arms in a rhythmic, looping motion as if walking toward the right. However, he remains anchored in the exact same spot in the center of the frame, walking in place with his feet staying on the same invisible ground line. His proportions, clothing colors, and the bold art style remain perfectly consistent throughout the motion. The loop is seamless, with S1 continuing this walking animation until the final frame, which matches <Picture 2> exactly in composition and character state.
+
+overall_soundscape: The sound of rhythmic, soft footsteps on a hard surface, alternating left and right to match the walking cycle, with the faint rustle of fabric from the jacket and trousers.
+
+non_diegetic_music: N/A

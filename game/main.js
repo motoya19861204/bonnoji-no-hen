@@ -9,6 +9,8 @@
   const TEX = {};
   const loadList = [];
   for (const [k, v] of Object.entries(manifest.frames)) loadList.push([k, 'assets/' + v.file]);
+  manifest.anims = manifest.anims || {};
+  for (const an of Object.values(manifest.anims)) for (const fr of an.frames) loadList.push([fr.file, 'assets/' + fr.file]);
   for (const [k, v] of Object.entries(manifest.images)) if (typeof v === 'string' && /\.(png|webp|jpg)$/.test(v)) loadList.push([k, 'assets/' + v]);
   await Promise.all(loadList.map(async ([k, url]) => { try { TEX[k] = await PIXI.Assets.load(url); } catch (e) { console.warn('missing', url); } }));
   const hasTex = (k) => !!TEX[k];
@@ -109,6 +111,20 @@
       a.view.spr.anchor.set(fr.anchorX ?? 0.5, fr.anchorY ?? 1);
       a.view.spr.visible = true; a.view.box.visible = false;
     } else { a.view.spr.visible = false; a.view.box.visible = true; a.view.box.tint = key.includes('punch') || key.includes('attack') ? 0xffdd55 : 0xffffff; }
+  }
+  // 動画由来のコマアニメ。frac=0..1（非ループ）/ 任意（ループ）。無ければ静止ポーズにフォールバック
+  function anim(a, clip, frac, fallbackKey) {
+    const an = manifest.anims[clip];
+    if (!an || !an.frames.length) return setFrame(a, fallbackKey);
+    const n = an.frames.length;
+    const i = an.loop ? ((Math.floor(frac) % n) + n) % n : Math.min(n - 1, Math.max(0, Math.floor(frac * n)));
+    const fr = an.frames[i];
+    if (!TEX[fr.file]) return setFrame(a, fallbackKey);
+    a.view.spr.texture = TEX[fr.file];
+    const sc = a.height / fr.charHeight;
+    a.view.spr.scale.set(sc);
+    a.view.spr.anchor.set(fr.anchorX, fr.anchorY);
+    a.view.spr.visible = true; a.view.box.visible = false;
   }
   function spawn(kind, x, y) {
     const isHero = kind === 'hero';
@@ -239,7 +255,7 @@
       if (--a.t <= 0) { if (a.hp <= 0) { a.dead = true; gameOver(); } else { a.state = 'idle'; a.inv = CFG.hero.invincibleMs / 16; } }
       setFrame(a, 'hero_down'); return;
     }
-    if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) a.state = 'idle'; setFrame(a, 'hero_hit'); return; }
+    if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) a.state = 'idle'; anim(a, 'hero_hit', a.t <= 0 ? 1 : 1 - a.t / 14, 'hero_hit'); return; }
     if (a.state === 'punch') {
       const p = CFG.hero.punch[a.attackIx]; a.t += 16;
       if (!a.hitDone && a.t >= 40 && a.t <= 40 + p.activeMs) {
@@ -258,7 +274,7 @@
       const canCancel = a.hitDone && a.comboTimer > 0 && a.t >= 40 + p.activeMs + p.recoverMs * 0.45;
       if (a.queued && canCancel) { a.queued = false; a.state = 'idle'; startPunch(a); return; }
       if (a.t >= 40 + p.activeMs + p.recoverMs) { a.state = 'idle'; a.queued = false; if (a.attackIx === 2) a.combo = 0; }
-      setFrame(a, 'hero_punch' + (a.attackIx + 1)); return;
+      anim(a, 'hero_punch' + (a.attackIx + 1), a.t / (40 + p.activeMs + p.recoverMs), 'hero_punch' + (a.attackIx + 1)); return;
     }
     // ジャンプ
     if (!grounded || a.state === 'jump') {
@@ -275,8 +291,8 @@
     if (dx || dy) {
       a.state = 'walk'; if (dx) a.facing = dx;
       a.x += dx * CFG.hero.speed; a.y += dy * CFG.hero.depthSpeed;
-      setFrame(a, Math.floor(a.animT / 8) % 2 ? 'hero_walk_a' : 'hero_walk_b');
-    } else { a.state = 'idle'; setFrame(a, 'hero_idle'); }
+      anim(a, 'hero_walk', a.animT / 4, Math.floor(a.animT / 8) % 2 ? 'hero_walk_a' : 'hero_walk_b');
+    } else { a.state = 'idle'; anim(a, 'hero_idle', a.animT / 6, 'hero_idle'); }
     a.y = Math.max(CFG.ground.top, Math.min(CFG.ground.bottom, a.y));
     const minX = camX + 30, maxX = locked ? lockRight - 30 : Math.min(stageLen - 30, camX + W - 30);
     a.x = Math.max(minX, Math.min(maxX, a.x));
@@ -291,12 +307,12 @@
       if (--a.t <= 0) { if (a.dying) { a.dead = true; a.view.visible = false; } else { a.state = 'idle'; a.cool = 30; } }
       setFrame(a, k + '_down'); a.view.alpha = a.dying && a.t < 20 ? a.t / 20 : 1; return;
     }
-    if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) { a.state = 'idle'; a.cool = 20; } setFrame(a, k + '_hit'); return; }
+    if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) { a.state = 'idle'; a.cool = 20; } anim(a, k + '_hit', 1 - a.t / 14, k + '_hit'); return; }
     if (a.state === 'attack') {
       a.t += 16;
       if (!a.hitDone && a.t >= st.windupMs) { a.hitDone = true; if (inRange(a, hero, st.reach)) { if (damage(hero, st.damage, 10, a, false)) { sfx('hurt'); shake = 6; } } }
       if (a.t >= st.windupMs + st.recoverMs) { a.state = 'idle'; a.cool = 40 + Math.random() * 40; attackers--; }
-      setFrame(a, k + '_attack'); return;
+      anim(a, k + '_attack', a.t / (st.windupMs + st.recoverMs), k + '_attack'); return;
     }
     if (a.cool > 0) a.cool--;
     const gap = CFG.ai.chaseGap + (k === 'boss' ? 30 : 0);
@@ -311,8 +327,8 @@
     if (Math.abs(dx) <= gap + 12 && Math.abs(dy) < CFG.hero.depthTolerance && a.cool <= 0 && attackers < CFG.ai.maxAttackers && hero.state !== 'down') {
       a.state = 'attack'; a.t = 0; a.hitDone = false; attackers++; return;
     }
-    if (mx || my) { a.x += mx * st.speed; a.y += my * st.speed * 0.7; a.y = Math.max(CFG.ground.top, Math.min(CFG.ground.bottom, a.y)); a.state = 'walk'; setFrame(a, Math.floor(a.animT / 10) % 2 ? k + '_walk_a' : k + '_walk_b'); }
-    else { a.state = 'idle'; setFrame(a, k + '_idle'); }
+    if (mx || my) { a.x += mx * st.speed; a.y += my * st.speed * 0.7; a.y = Math.max(CFG.ground.top, Math.min(CFG.ground.bottom, a.y)); a.state = 'walk'; anim(a, k + '_walk', a.animT / 5, Math.floor(a.animT / 10) % 2 ? k + '_walk_a' : k + '_walk_b'); }
+    else { a.state = 'idle'; anim(a, k + '_idle', a.animT / 6, k + '_idle'); }
   }
 
   // ---------- ステージ進行 ----------
@@ -346,7 +362,7 @@
   // ---------- メインループ ----------
   app.ticker.maxFPS = 60;
   app.ticker.add(() => {
-    if (gameState !== 'play') { updateFx(); updateCamera(); layoutHud(); if (pressed.KeyZ) location.reload(); return; }
+    if (gameState !== 'play') { updateFx(); updateCamera(); layoutHud(); if ((gameState === 'over' || gameState === 'clear') && pressed.KeyZ) location.reload(); if (gameState !== 'title') for (const k in pressed) pressed[k] = false; return; }
     if (hitStop > 0) { hitStop--; flash.alpha *= 0.85; updateFx(); updateCamera(); return; }
     flash.alpha *= 0.8;
     attackers = actors.filter((a) => a.kind !== 'hero' && !a.dead && a.state === 'attack').length;
@@ -368,19 +384,36 @@
   const overlay = document.getElementById('overlay');
   const video = document.getElementById('video');
   app.ticker.stop();
-  const logo = hasTex('ui_logo') ? new PIXI.Sprite(TEX['ui_logo']) : null;
   function showTitleThenStart() {
     video.style.display = 'none'; video.pause();
-    if (logo) {
-      logo.anchor.set(0.5); logo.x = W / 2; logo.y = H / 2 - 20; logo.width = 640; logo.scale.y = logo.scale.x; logo.alpha = 0;
-      const t = new PIXI.Text({ text: 'PRESS ANY KEY', style: { fontFamily: 'Impact, sans-serif', fontSize: 28, fill: '#fff', stroke: { color: '#000', width: 5 } } });
-      t.anchor.set(0.5); t.x = W / 2; t.y = H - 70;
-      const cover = new PIXI.Graphics().rect(0, 0, W, H).fill(0x000000);
-      app.stage.addChild(cover, logo, t);
-      let n = 0;
-      const tick = () => { n++; logo.alpha = Math.min(1, n / 30); logo.scale.set(logo.scale.x); t.visible = n % 40 < 26; if (Object.values(pressed).some(Boolean) && n > 20) { app.ticker.remove(tick); cover.destroy(); logo.destroy(); t.destroy(); for (const k in pressed) pressed[k] = false; gameState = 'play'; } };
-      gameState = 'title'; app.ticker.add(tick); app.ticker.start();
-    } else { gameState = 'play'; app.ticker.start(); }
+    const title = new PIXI.Container();
+    const cover = new PIXI.Graphics().rect(0, 0, W, H).fill(0x000000); title.addChild(cover);
+    if (hasTex('title_bg')) { const bg = new PIXI.Sprite(TEX['title_bg']); const sc = Math.max(W / bg.texture.width, H / bg.texture.height); bg.scale.set(sc); bg.anchor.set(0.5); bg.x = W / 2; bg.y = H / 2; title.addChild(bg);
+      const dim = new PIXI.Graphics().rect(0, 0, W, H).fill({ color: 0x000000, alpha: 0.35 }); title.addChild(dim); }
+    let logo;
+    if (hasTex('ui_logo')) { logo = new PIXI.Sprite(TEX['ui_logo']); logo.anchor.set(0.5); logo.width = 620; logo.scale.y = logo.scale.x; }
+    else { logo = new PIXI.Text({ text: '煩悩児の変', style: { fontFamily: '"Yu Mincho", "Hiragino Mincho ProN", serif', fontSize: 110, fontWeight: 'bold', fill: '#f4f4f4', stroke: { color: '#7a0000', width: 12 }, dropShadow: { color: '#000', blur: 8, distance: 6 } } }); logo.anchor.set(0.5); }
+    logo.x = W / 2; logo.y = H / 2 - 50; logo.alpha = 0; title.addChild(logo);
+    const startT = new PIXI.Text({ text: 'GAME START', style: { fontFamily: 'Impact, "Arial Black", sans-serif', fontSize: 40, fill: '#ffe066', stroke: { color: '#000', width: 7 }, letterSpacing: 4 } });
+    startT.anchor.set(0.5); startT.x = W / 2; startT.y = H - 92; startT.visible = false; title.addChild(startT);
+    const hint = new PIXI.Text({ text: isTouch ? 'タップでスタート' : 'Z キー / クリックでスタート', style: { fontFamily: 'sans-serif', fontSize: 16, fill: '#ddd', stroke: { color: '#000', width: 3 } } });
+    hint.anchor.set(0.5); hint.x = W / 2; hint.y = H - 50; title.addChild(hint);
+    app.stage.addChild(title);
+    const baseScale = logo.scale.x;
+    let n = 0; let go = false; let goN = 0;
+    const onTap = () => { if (n > 20 && !go) { go = true; sfx('coin'); } };
+    app.canvas.addEventListener('pointerdown', onTap);
+    const tick = () => {
+      n++;
+      logo.alpha = Math.min(1, n / 25);
+      const pop = n < 25 ? 1 + (25 - n) / 25 * 0.6 : 1 + Math.sin(n / 30) * 0.015;
+      logo.scale.set(baseScale * pop);
+      startT.visible = n > 30 && (go ? goN % 6 < 3 : n % 50 < 32);
+      if (!go && n > 20 && (pressed.KeyZ || pressed.KeyX || pressed.Space)) { go = true; sfx('coin'); }
+      for (const k in pressed) pressed[k] = false;
+      if (go) { goN++; if (goN > 45) { app.ticker.remove(tick); app.canvas.removeEventListener('pointerdown', onTap); title.destroy({ children: true }); gameState = 'play'; } }
+    };
+    gameState = 'title'; app.ticker.add(tick); app.ticker.start();
   }
   overlay.addEventListener('pointerdown', start); window.addEventListener('keydown', start, { once: true });
   let started = false;

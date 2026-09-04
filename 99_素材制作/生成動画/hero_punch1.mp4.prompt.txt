@@ -1,0 +1,7 @@
+How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 1) aligns with the 5.00-second mark of the target video.
+
+integrated_multimodal_description: [Shot 1] This is a cel-shaded anime style video with bold, clean black outlines. The scene opens on <Picture 1>, featuring a young man (S1) with shaggy black hair, wearing a teal zip-up hoodie over a white t-shirt with the text "BEN" printed across the chest in bold black letters, paired with loose blue trousers and white sneakers. He is positioned in a centered fighting stance against a completely uniform, flat, solid magenta background with no shadows, gradients, or floor visible. The camera is a Static Shot, locked in place with no movement. Immediately, (S1) throws a quick, powerful left jab toward the right side of the frame, his arm extending fully with sharp, snappy motion. The animation is fluid and precise, maintaining his proportions, colors, and the bold cel-shaded aesthetic throughout the strike. At 00:02.500, (S1) quickly snaps his arm back to the original fighting position, returning his fist to guard his face. By the end of the shot, he has returned to the exact pose, design, and position as seen in <Picture 2>, remaining centered against the unchanging solid magenta backdrop.
+
+overall_soundscape: A sharp, sudden "whoosh" of air accompanies the fast extension of the punch, followed by a brief, subtle fabric rustle as the arm snaps back into the fighting stance.
+
+non_diegetic_music: N/A

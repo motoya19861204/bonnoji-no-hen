@@ -35,13 +35,738 @@
    "charHeight": 480,
    "anchorX": 0.5,
    "anchorY": 1.0
+  },
+  "hero_hit": {
+   "file": "sprites/hero_hit.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_attack": {
+   "file": "sprites/punk_attack.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_hit": {
+   "file": "sprites/punk_hit.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_walk_b": {
+   "file": "sprites/punk_walk_b.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "boss_idle": {
+   "file": "sprites/boss_idle.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "boss_walk_a": {
+   "file": "sprites/boss_walk_a.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_down": {
+   "file": "sprites/hero_down.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_jump": {
+   "file": "sprites/hero_jump.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_punch2": {
+   "file": "sprites/hero_punch2.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_punch3": {
+   "file": "sprites/hero_punch3.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_down": {
+   "file": "sprites/punk_down.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "boss_attack": {
+   "file": "sprites/boss_attack.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "boss_walk_b": {
+   "file": "sprites/boss_walk_b.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
   }
  },
  "images": {
-  "opening": "opening.mp4"
+  "opening": "opening.mp4",
+  "title_bg": "title_bg.png",
+  "ui_logo": "sprites/ui_logo.png",
+  "bg_a": "bg/bg_a.jpg",
+  "bg_b": "bg/bg_b.jpg",
+  "bg_c": "bg/bg_c.jpg"
  },
  "voices": {
   "tissue": "voice/tissue.mp3",
   "yamamori": "voice/yamamori.mp3"
+ },
+ "anims": {
+  "hero_idle": {
+   "frames": [
+    {
+     "file": "anim/hero_idle_00.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_01.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_02.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_03.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_04.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_05.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_06.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_idle_07.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  },
+  "hero_punch1": {
+   "frames": [
+    {
+     "file": "anim/hero_punch1_00.png",
+     "anchorX": 0.5234,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch1_01.png",
+     "anchorX": 0.354,
+     "anchorY": 1.0024,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch1_02.png",
+     "anchorX": 0.3353,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch1_03.png",
+     "anchorX": 0.3826,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch1_04.png",
+     "anchorX": 0.4955,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch1_05.png",
+     "anchorX": 0.514,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "hero_walk": {
+   "frames": [
+    {
+     "file": "anim/hero_walk_00.png",
+     "anchorX": 0.4848,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_01.png",
+     "anchorX": 0.5052,
+     "anchorY": 0.986,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_02.png",
+     "anchorX": 0.5506,
+     "anchorY": 0.9725,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_03.png",
+     "anchorX": 0.5733,
+     "anchorY": 0.9817,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_04.png",
+     "anchorX": 0.5614,
+     "anchorY": 0.9908,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_05.png",
+     "anchorX": 0.5789,
+     "anchorY": 0.9908,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_06.png",
+     "anchorX": 0.4906,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_walk_07.png",
+     "anchorX": 0.5323,
+     "anchorY": 1.0094,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  },
+  "hero_punch2": {
+   "frames": [
+    {
+     "file": "anim/hero_punch2_00.png",
+     "anchorX": 0.5283,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch2_01.png",
+     "anchorX": 0.4724,
+     "anchorY": 1.0049,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch2_02.png",
+     "anchorX": 0.513,
+     "anchorY": 0.9952,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch2_03.png",
+     "anchorX": 0.3961,
+     "anchorY": 0.9952,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch2_04.png",
+     "anchorX": 0.5089,
+     "anchorY": 0.9952,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch2_05.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "hero_hit": {
+   "frames": [
+    {
+     "file": "anim/hero_hit_00.png",
+     "anchorX": 0.3143,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_hit_01.png",
+     "anchorX": 0.3407,
+     "anchorY": 1.0045,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_hit_02.png",
+     "anchorX": 0.3684,
+     "anchorY": 1.0092,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_hit_03.png",
+     "anchorX": 0.6514,
+     "anchorY": 1.0094,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_hit_04.png",
+     "anchorX": 0.5565,
+     "anchorY": 1.0143,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "hero_punch3": {
+   "frames": [
+    {
+     "file": "anim/hero_punch3_00.png",
+     "anchorX": 0.5234,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_01.png",
+     "anchorX": 0.487,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_02.png",
+     "anchorX": 0.4158,
+     "anchorY": 1.0777,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_03.png",
+     "anchorX": 0.2638,
+     "anchorY": 1.0856,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_04.png",
+     "anchorX": 0.2683,
+     "anchorY": 1.0777,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_05.png",
+     "anchorX": 0.2772,
+     "anchorY": 1.0842,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_06.png",
+     "anchorX": 0.41,
+     "anchorY": 1.0244,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_punch3_07.png",
+     "anchorX": 0.5189,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "punk_attack": {
+   "frames": [
+    {
+     "file": "anim/punk_attack_00.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_attack_01.png",
+     "anchorX": 0.4,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_attack_02.png",
+     "anchorX": 0.4,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_attack_03.png",
+     "anchorX": 0.3258,
+     "anchorY": 0.9943,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_attack_04.png",
+     "anchorX": 0.4179,
+     "anchorY": 0.9945,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_attack_05.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "punk_hit": {
+   "frames": [
+    {
+     "file": "anim/punk_hit_00.png",
+     "anchorX": 0.3023,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_hit_01.png",
+     "anchorX": 0.3717,
+     "anchorY": 0.9948,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_hit_02.png",
+     "anchorX": 0.4727,
+     "anchorY": 0.9943,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_hit_03.png",
+     "anchorX": 0.7473,
+     "anchorY": 0.995,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_hit_04.png",
+     "anchorX": 0.4359,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "punk_idle": {
+   "frames": [
+    {
+     "file": "anim/punk_idle_00.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_01.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_02.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_03.png",
+     "anchorX": 0.4407,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_04.png",
+     "anchorX": 0.4602,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_05.png",
+     "anchorX": 0.4561,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_06.png",
+     "anchorX": 0.4522,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_idle_07.png",
+     "anchorX": 0.4444,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  },
+  "punk_walk": {
+   "frames": [
+    {
+     "file": "anim/punk_walk_00.png",
+     "anchorX": 0.5074,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_01.png",
+     "anchorX": 0.5532,
+     "anchorY": 0.9898,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_02.png",
+     "anchorX": 0.5185,
+     "anchorY": 0.9899,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_03.png",
+     "anchorX": 0.465,
+     "anchorY": 0.9949,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_04.png",
+     "anchorX": 0.4775,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_05.png",
+     "anchorX": 0.6,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_06.png",
+     "anchorX": 0.5763,
+     "anchorY": 1.0026,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_walk_07.png",
+     "anchorX": 0.4615,
+     "anchorY": 1.0052,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  },
+  "boss_idle": {
+   "frames": [
+    {
+     "file": "anim/boss_idle_00.png",
+     "anchorX": 0.5674,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_01.png",
+     "anchorX": 0.5674,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_02.png",
+     "anchorX": 0.5714,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_03.png",
+     "anchorX": 0.5714,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_04.png",
+     "anchorX": 0.5714,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_05.png",
+     "anchorX": 0.5714,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_06.png",
+     "anchorX": 0.5674,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_idle_07.png",
+     "anchorX": 0.5674,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  },
+  "boss_attack": {
+   "frames": [
+    {
+     "file": "anim/boss_attack_00.png",
+     "anchorX": 0.5755,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_attack_01.png",
+     "anchorX": 0.5298,
+     "anchorY": 0.9817,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_attack_02.png",
+     "anchorX": 0.4525,
+     "anchorY": 0.9862,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_attack_03.png",
+     "anchorX": 0.4059,
+     "anchorY": 1.0047,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_attack_04.png",
+     "anchorX": 0.4059,
+     "anchorY": 0.9831,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_attack_05.png",
+     "anchorX": 0.5442,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "boss_hit": {
+   "frames": [
+    {
+     "file": "anim/boss_hit_00.png",
+     "anchorX": 0.4,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_hit_01.png",
+     "anchorX": 0.5,
+     "anchorY": 0.9471,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_hit_02.png",
+     "anchorX": 0.5,
+     "anchorY": 0.943,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_hit_03.png",
+     "anchorX": 0.7222,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_hit_04.png",
+     "anchorX": 0.5878,
+     "anchorY": 1.0,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "boss_walk": {
+   "frames": [
+    {
+     "file": "anim/boss_walk_00.png",
+     "anchorX": 0.4955,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_01.png",
+     "anchorX": 0.5385,
+     "anchorY": 0.9906,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_02.png",
+     "anchorX": 0.4894,
+     "anchorY": 0.9953,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_03.png",
+     "anchorX": 0.4545,
+     "anchorY": 0.9953,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_04.png",
+     "anchorX": 0.4839,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_05.png",
+     "anchorX": 0.5771,
+     "anchorY": 1.0096,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_06.png",
+     "anchorX": 0.5342,
+     "anchorY": 1.0144,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_walk_07.png",
+     "anchorX": 0.4792,
+     "anchorY": 1.0096,
+     "charHeight": 480
+    }
+   ],
+   "loop": true
+  }
  }
 }

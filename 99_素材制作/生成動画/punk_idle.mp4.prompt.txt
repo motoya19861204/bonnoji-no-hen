@@ -1,0 +1,7 @@
+How the reference pictures align with the target video — Picture 1 (from Shot 1) aligns with the 0.00-second mark of the target video; Picture 2 (from Shot 1) aligns with the 5.00-second mark of the target video.
+
+integrated_multimodal_description: [Shot 1] Cel-shaded anime style with bold black outlines. The scene opens with <Picture 1>, featuring a punk fighter (S1) with a purple mohawk, wearing a black leather jacket over a red shirt, ripped blue jeans, and black combat boots. He is positioned in the center of the frame in an aggressive fighting stance with his fists raised and elbows tucked. The entire background is a completely uniform, flat, solid bright green color with no shadows, no floor, and no gradients. The camera is a Static Shot, locked completely with no movement. S1 maintains this exact position in the frame, swaying his upper body and bouncing lightly on the balls of his feet in a rhythmic, looping motion. His weight shifts subtly from left to right, and his fists twitch slightly in a readiness loop, while his determined facial expression and character proportions remain perfectly consistent with the input image. The motion continues fluidly until the video ends, converging exactly on the pose seen in <Picture 2>.
+
+overall_soundscape: The rhythmic, muffled thuds of heavy combat boots bouncing lightly on an invisible surface, accompanied by the subtle, leather-like creaking of a jacket moving with the character's body.
+
+non_diegetic_music: N/A

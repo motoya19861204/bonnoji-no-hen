@@ -20,7 +20,8 @@ def keyout(name):
     src = os.path.join(RAW, name + '.png'); dst = os.path.join(KEYED, name + '.png')
     if os.path.exists(dst) and os.path.getmtime(dst) > os.path.getmtime(src):
         return dst
-    r = subprocess.run([sys.executable, KEYOUT, '--input', src, '--out', dst, '--force', '--edge-contract', '1'], capture_output=True)
+    extra = ['--despill-strong'] if name.startswith(('ui_', 'fx_')) else []
+    r = subprocess.run([sys.executable, KEYOUT, '--input', src, '--out', dst, '--force', '--edge-contract', '1'] + extra, capture_output=True)
     if r.returncode != 0:
         print('keyout失敗', name, r.stderr.decode('utf-8', 'ignore')[-300:]); return None
     return dst
