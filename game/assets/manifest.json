@@ -11,9 +11,35 @@
    "charHeight": 480,
    "anchorX": 0.5,
    "anchorY": 1.0
+  },
+  "hero_walk_b": {
+   "file": "sprites/hero_walk_b.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_idle": {
+   "file": "sprites/punk_idle.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_punch1": {
+   "file": "sprites/hero_punch1.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "punk_walk_a": {
+   "file": "sprites/punk_walk_a.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
   }
  },
- "images": {},
+ "images": {
+  "opening": "opening.mp4"
+ },
  "voices": {
   "tissue": "voice/tissue.mp3",
   "yamamori": "voice/yamamori.mp3"

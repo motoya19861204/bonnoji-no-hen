@@ -386,6 +386,13 @@
   let started = false;
   function start() {
     if (started) return; started = true; AC.resume(); overlay.style.display = 'none';
+    if (isTouch) {
+      const el = document.documentElement;
+      const fs = el.requestFullscreen || el.webkitRequestFullscreen;
+      Promise.resolve(fs ? fs.call(el) : null).catch(() => {}).then(() => {
+        try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); } catch (e) {}
+      });
+    }
     if (manifest.images.opening) {
       video.src = 'assets/' + manifest.images.opening; video.style.display = 'block';
       video.play().catch(() => showTitleThenStart());

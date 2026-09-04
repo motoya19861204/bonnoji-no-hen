@@ -18,6 +18,11 @@
   .pad div { position: absolute; width: 33%; height: 33%; background: rgba(255,255,255,.18); border-radius: 12%; }
   .btn { position: absolute; bottom: 6vh; width: 16vmin; height: 16vmin; border-radius: 50%; background: rgba(255,80,80,.35);
     pointer-events: auto; color: #fff; font: bold 5vmin sans-serif; display: flex; align-items: center; justify-content: center; }
+  #rotate { position: fixed; inset: 0; z-index: 20; background: #000; color: #fff; display: none; align-items: center; justify-content: center;
+    flex-direction: column; font-family: sans-serif; font-size: 22px; text-align: center; }
+  #rotate .icon { font-size: 80px; animation: rot 1.6s ease-in-out infinite; }
+  @keyframes rot { 0%,20% { transform: rotate(0deg);} 60%,100% { transform: rotate(90deg);} }
+  @media (orientation: portrait) and (pointer: coarse) { #rotate { display: flex; } }
 </style>
 </head>
 <body>
@@ -33,6 +38,7 @@
   <div class="btn" data-k="KeyZ" style="right:22vmin">攻</div>
   <div class="btn" data-k="KeyX" style="right:3vw">跳</div>
 </div>
+<div id="rotate"><div class="icon">📱</div><div>スマホを横向きにしてください</div></div>
 <div id="overlay">
   <h1>煩悩児の変</h1>
   <p>クリック / タップ / 何かキーで開始</p>
