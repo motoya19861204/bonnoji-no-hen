@@ -17,7 +17,7 @@ for d in (FRAMES, CHECK, OUT): os.makedirs(d, exist_ok=True)
 OUT_H = 480           # 出力コマの基準キャラ高さ（idle基準）
 FPS = 24
 LOOP = {'idle', 'walk'}
-NFRAMES = {'idle': 8, 'walk': 8, 'punch1': 6, 'punch2': 6, 'punch3': 8, 'attack': 6, 'hit': 5}
+NFRAMES = {'idle': 8, 'walk': 8, 'punch1': 6, 'punch2': 6, 'punch3': 8, 'attack': 6, 'hit': 5, 'down': 6}
 
 def extract(clip):
     d = os.path.join(FRAMES, clip)
@@ -95,6 +95,9 @@ def main():
             cum = np.cumsum(step); cum = cum / max(cum[-1], 1e-6)
             idx = sorted(set(s + int(np.searchsorted(cum, t)) for t in np.linspace(0, 1, want)))
             idx = [min(e, i) for i in idx]
+        # 異常コマ除去: 前景面積が基準の1.5倍を超えるコマ（動画が足したフラッシュ等）は捨てる
+        area0 = (alphas[0] > 40).sum()
+        idx = [fi for fi in idx if (alphas[fi] > 40).sum() < area0 * 1.5]
         frames = []
         for i, fi in enumerate(idx):
             x = rgbas[fi]; a = x[..., 3]

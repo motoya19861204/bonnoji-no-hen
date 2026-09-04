@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] This is a cel-shaded anime style shot with bold outlines, matching the visual identity of <Picture 1>. The scene opens with a young man (S1) with shaggy black hair, wearing a teal zip-up hoodie over a white t-shirt with the text "BEN" in bold black letters, and baggy blue trousers with white sneakers. He is positioned in a fighting stance in the center of the frame against a completely uniform, flat, solid magenta background with no shadows, floor, or gradients. The camera is a Static Shot. Suddenly, an invisible force strikes S1 with high impact from the right side of the frame. The force knocks S1 backward with significant velocity; his body recoils sharply to the left, his feet leave the ground, and he is thrown horizontally. As he falls, his limbs flail slightly before he lands flat on his back in the center of the frame. Upon impact, his body bounces slightly against the invisible floor before coming to a complete stop. He lies perfectly still, staring upward, while his design, proportions, and the solid magenta background remain entirely consistent and unchanged.
+
+overall_soundscape: A sudden, loud, explosive "thwack" sound occurs at the moment of impact from the right. This is followed by the rushing sound of air and a heavy, dull "thump" as the character's back hits the ground. The video ends with a brief moment of absolute silence as the character lies still.
+
+non_diegetic_music: N/A

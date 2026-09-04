@@ -212,7 +212,7 @@
     barBg.clear().rect(bx, by, bw, bh).fill(0x330000);
     const r = Math.max(0, hero.hp / hero.maxHp);
     bar.clear().rect(bx, by, bw * r, bh).fill(r > 0.3 ? 0xffdd00 : 0xff2222);
-    scoreT.x = bx + bw + 16; scoreT.y = by - 8; scoreT.text = '1P  ' + String(score).padStart(7, '0');
+    scoreT.x = bx + bw + 36; scoreT.y = by - 8; scoreT.text = '1P  ' + String(score).padStart(7, '0');
     const boss = actors.find((a) => a.kind === 'boss' && !a.dead);
     bossBar.clear();
     if (boss) { bossBar.rect(W / 2 - 200, H - 34, 400, 14).fill(0x220000).rect(W / 2 - 200, H - 34, 400 * Math.max(0, boss.hp / boss.maxHp), 14).fill(0xff3333); }
@@ -233,7 +233,7 @@
     hitSpark(target.x + dir * 20, y, big);
     if (big) { noiseBurst(0.35, 0.8); sfx('big'); } else { sfx('hit'); noiseBurst(0.08, 0.3); }
     if (target.hp <= 0 || big) {
-      target.state = 'down'; target.t = big ? 70 : 50; target.vx = dir * kb * 0.9; target.vz = big ? 12 : 7; target.z = Math.max(target.z, 1);
+      target.state = 'down'; target.t = big ? 70 : 50; target.tMax = target.t; target.vx = dir * kb * 0.9; target.vz = big ? 12 : 7; target.z = Math.max(target.z, 1);
       if (target.hp <= 0) { target.dying = true; if (target.kind !== 'hero') { score += target.st.score; floatText(target.x, y - 40, '+' + target.st.score, '#ffee44', 26); } }
     } else { target.state = 'hit'; target.t = 14; target.vx = dir * kb * 0.5; }
     return true;
@@ -253,7 +253,7 @@
     if (a.state === 'down') {
       a.x += a.vx; a.vx *= 0.9; a.vz -= CFG.hero.gravity; a.z += a.vz; if (a.z < 0) { a.z = 0; a.vz = 0; }
       if (--a.t <= 0) { if (a.hp <= 0) { a.dead = true; gameOver(); } else { a.state = 'idle'; a.inv = CFG.hero.invincibleMs / 16; } }
-      setFrame(a, 'hero_down'); return;
+      anim(a, 'hero_down', Math.min(1, (a.tMax - a.t) / 22), 'hero_down'); return;
     }
     if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) a.state = 'idle'; anim(a, 'hero_hit', a.t <= 0 ? 1 : 1 - a.t / 14, 'hero_hit'); return; }
     if (a.state === 'punch') {
@@ -305,7 +305,7 @@
     if (a.state === 'down') {
       a.x += a.vx; a.vx *= 0.9; a.vz -= 0.7; a.z += a.vz; if (a.z < 0) { a.z = 0; a.vz = 0; }
       if (--a.t <= 0) { if (a.dying) { a.dead = true; a.view.visible = false; } else { a.state = 'idle'; a.cool = 30; } }
-      setFrame(a, k + '_down'); a.view.alpha = a.dying && a.t < 20 ? a.t / 20 : 1; return;
+      anim(a, k + '_down', Math.min(1, (a.tMax - a.t) / 22), k + '_down'); a.view.alpha = a.dying && a.t < 20 ? a.t / 20 : 1; return;
     }
     if (a.state === 'hit') { a.x += a.vx; a.vx *= 0.85; if (--a.t <= 0) { a.state = 'idle'; a.cool = 20; } anim(a, k + '_hit', 1 - a.t / 14, k + '_hit'); return; }
     if (a.state === 'attack') {
@@ -362,7 +362,7 @@
   // ---------- メインループ ----------
   app.ticker.maxFPS = 60;
   app.ticker.add(() => {
-    if (gameState !== 'play') { updateFx(); updateCamera(); layoutHud(); if ((gameState === 'over' || gameState === 'clear') && pressed.KeyZ) location.reload(); if (gameState !== 'title') for (const k in pressed) pressed[k] = false; return; }
+    if (gameState !== 'play') { updateFx(); updateCamera(); layoutHud(); if ((gameState === 'over' || gameState === 'clear') && pressed.KeyZ) { try { sessionStorage.setItem('skipOp', '1'); } catch (e) {} location.reload(); } if (gameState !== 'title') for (const k in pressed) pressed[k] = false; return; }
     if (hitStop > 0) { hitStop--; flash.alpha *= 0.85; updateFx(); updateCamera(); return; }
     flash.alpha *= 0.8;
     attackers = actors.filter((a) => a.kind !== 'hero' && !a.dead && a.state === 'attack').length;
@@ -426,7 +426,7 @@
         try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {}); } catch (e) {}
       });
     }
-    if (manifest.images.opening) {
+    if (manifest.images.opening && !sessionStorage.getItem('skipOp')) {
       video.src = 'assets/' + manifest.images.opening; video.style.display = 'block';
       video.play().catch(() => showTitleThenStart());
       video.onended = showTitleThenStart;

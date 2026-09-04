@@ -795,6 +795,117 @@
     }
    ],
    "loop": true
+  },
+  "boss_down": {
+   "frames": [
+    {
+     "file": "anim/boss_down_00.png",
+     "anchorX": 0.4,
+     "anchorY": 1.0025,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_down_01.png",
+     "anchorX": 0.678,
+     "anchorY": 0.9954,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_down_02.png",
+     "anchorX": 0.6557,
+     "anchorY": 0.9953,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_down_03.png",
+     "anchorX": 0.5245,
+     "anchorY": 1.1235,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_down_04.png",
+     "anchorX": 0.5743,
+     "anchorY": 1.0152,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/boss_down_05.png",
+     "anchorX": 0.5043,
+     "anchorY": 0.8415,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "hero_down": {
+   "frames": [
+    {
+     "file": "anim/hero_down_00.png",
+     "anchorX": 0.3143,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_down_01.png",
+     "anchorX": 0.5882,
+     "anchorY": 0.9325,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_down_02.png",
+     "anchorX": 0.5146,
+     "anchorY": 1.4742,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/hero_down_03.png",
+     "anchorX": 0.4824,
+     "anchorY": 1.0118,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
+  },
+  "punk_down": {
+   "frames": [
+    {
+     "file": "anim/punk_down_00.png",
+     "anchorX": 0.3023,
+     "anchorY": 1.0,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_down_01.png",
+     "anchorX": 0.3514,
+     "anchorY": 0.995,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_down_02.png",
+     "anchorX": 0.3909,
+     "anchorY": 0.995,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_down_03.png",
+     "anchorX": 0.5465,
+     "anchorY": 1.2083,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_down_04.png",
+     "anchorX": 0.6626,
+     "anchorY": 1.1127,
+     "charHeight": 480
+    },
+    {
+     "file": "anim/punk_down_05.png",
+     "anchorX": 0.5829,
+     "anchorY": 0.8197,
+     "charHeight": 480
+    }
+   ],
+   "loop": false
   }
  }
 }
