@@ -1,0 +1,5 @@
+
+
+Reference image 1 is a photo of a real person. Turn THIS person into an anime-style character design for a 2D side-scrolling beat 'em up game (Final Fight / Streets of Rage style). Copy the person's face, hairstyle, hair length, expression, and outfit directly from the photo: the same shaggy dark hair, same face shape, the teal/green zip hoodie with white lining, the dark striped scarf, the white T-shirt with dark "BEN" lettering on it. Do not redesign or reinterpret the look; just translate it faithfully into anime style.
+
+Layout: character design sheet, 1536x1024, plain light gray background. Left: full-body front standing pose. Center: full-body 3/4 view in a fighting stance (fists raised). Right: face close-up. Clean lineart, cel shading, 90s arcade anime look. No text, no logos other than the T-shirt lettering.

@@ -1,0 +1,5 @@
+.env
+node_modules/
+tools/work/
+99_素材制作/生成原本/
+*.mp4
