@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] This is a 2D-animated cinematic shot. The scene opens with <Picture 1>, featuring a young man (S1) with shaggy, dark brown hair, heavy-lidded eyes, and a flat, expressionless face. He is wearing a teal-colored hooded jacket over a white t-shirt with the bold, dark blue text "BEN" partially visible on the chest, and a black-and-white striped scarf wrapped snugly around his neck. He is centered in a medium close-up against a plain, neutral grey background. The camera remains in a Static Shot throughout the duration. (S1), who possesses a deep, low-pitched male voice with a monotone and low-energy timbre, looks directly into the lens with a deadpan delivery. His lips move slowly and deliberately as he says <d>[Japanese] やまもーり</d>, stretching the long vowel sound. After speaking, he maintains his vacant, emotionless gaze and still posture until the end of the video.
+
+overall_soundscape: N/A
+
+non_diegetic_music: N/A

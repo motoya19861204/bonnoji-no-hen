@@ -1,0 +1,21 @@
+{
+ "frames": {
+  "hero_idle": {
+   "file": "sprites/hero_idle.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  },
+  "hero_walk_a": {
+   "file": "sprites/hero_walk_a.png",
+   "charHeight": 480,
+   "anchorX": 0.5,
+   "anchorY": 1.0
+  }
+ },
+ "images": {},
+ "voices": {
+  "tissue": "voice/tissue.mp3",
+  "yamamori": "voice/yamamori.mp3"
+ }
+}

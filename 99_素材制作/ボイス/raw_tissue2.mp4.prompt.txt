@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] This is a 2D-animated cinematic shot. The scene opens on <Picture 1>, featuring a young man (S1) with messy, voluminous black hair and a heavy-lidded, unimpressed gaze. He wears a teal hooded jacket over a white t-shirt with the bold, clean, legible text "BEN" printed in dark blue across the chest, and a navy-and-white striped scarf wrapped snugly around his neck. The background is a flat, neutral light gray, creating a minimalist environment. The camera remains in a Static Shot, maintaining a medium close-up composition. S1 looks directly into the camera lens with a flat, deadpan expression; his brows are slightly lowered and his lips are set in a neutral, straight line. As he speaks, his mouth moves with minimal effort, reflecting his low energy. S1, who has a deep, low-pitched male voice with a monotone timbre and a slow speaking rate, says: <d>[Japanese] ティッシュが</d>. After speaking, his expression remains completely unchanged and unimpressed, staring blankly at the viewer until the end of the video.
+
+overall_soundscape: N/A
+
+non_diegetic_music: N/A
